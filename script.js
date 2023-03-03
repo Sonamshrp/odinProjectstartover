@@ -1,5 +1,6 @@
 let playerPoint = 0,
     computerPoint = 0;
+let roundCounter = 0;
     
 const scoreboard = document.querySelector('.scoreboard');
 const selected = scoreboard.firstElementChild;
@@ -41,20 +42,38 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
- function game(button){
+
+function game(button){
+    if (roundCounter < 5) {
         const playerSelection = button.textContent;
         const computerSelection = getComputerChoice();
         selected.insertAdjacentHTML('beforeend','<div>'+`player: ${playerSelection} computer:${computerSelection}`+'</div>');
         console.log(playRound(playerSelection,computerSelection));
         score.insertAdjacentHTML('beforeend','<div>'+`your point: ${playerPoint}, your enemy point: ${computerPoint}`+'</div>');
+        roundCounter++;
+    }
+    
+    if (roundCounter == 5) {
+        if (playerPoint > computerPoint) {
+            console.log('congratulation you won');
+        } else if (playerPoint < computerPoint) {
+            console.log('You\'re a FAILURE');
+        } else {
+            console.log('It\'s a draw');
         }
+        
+        // Reset scores and counter for the next game
+        playerPoint = 0;
+        computerPoint = 0;
+        roundCounter = 0;
+    }
+}
+
 
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-  
         game(button);
   });
 });
-
