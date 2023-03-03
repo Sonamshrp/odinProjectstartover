@@ -5,6 +5,7 @@ let roundCounter = 0;
 const scoreboard = document.querySelector('.scoreboard');
 const selected = scoreboard.firstElementChild;
 const score = document.querySelector('#score');
+const winner = document.querySelector('#winner');
 
 //below codes get random choice for computer
 let choices = ['rock', 'paper', 'scissors'];
@@ -55,11 +56,11 @@ function game(button){
     
     if (roundCounter == 5) {
         if (playerPoint > computerPoint) {
-            console.log('congratulation you won');
+            winner.insertAdjacentHTML('beforeend','<div>'+`Yeah you won!`+'</div>');
         } else if (playerPoint < computerPoint) {
-            console.log('You\'re a FAILURE');
+            winner.insertAdjacentHTML('beforeend','<div>'+`You lost`+'</div>');
         } else {
-            console.log('It\'s a draw');
+            winner.insertAdjacentHTML('beforeend',`it's a Draw`+'</div>');
         }
         
         // Reset scores and counter for the next game

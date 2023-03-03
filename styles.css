@@ -1,4 +1,4 @@
-#selected, #score {
+#selected, #score, #winner {
   display: inline-block;
   vertical-align: top;
 }
