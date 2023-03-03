@@ -1,6 +1,9 @@
 let playerPoint = 0,
     computerPoint = 0;
 
+let selections= document.getElementById('')
+
+
 
 //below codes get random choice for computer
 let choices = ['rock', 'paper', 'scissors'];
@@ -9,8 +12,6 @@ let getComputerChoice = () => {
     let randomNum = Math.floor(Math.random() * choices.length);
     return choices[randomNum];
 };
-
-
 
 
 function playRound(playerSelection, computerSelection) {
@@ -45,29 +46,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+ function game(button){
+        const playerSelection = button.textContent;
+        const computerSelection = getComputerChoice();
 
+        console.log(playRound(playerSelection,computerSelection));
+        console.log(playerPoint, computerPoint);
+        }
 
-function game() {
-    //    for ( let i=0; i<5; i++){
-    //        const computerSelection = getComputerChoice();
-    //        let playerSelection = prompt("Select your weapon of choice:","choose wisely").toLowerCase(); 
+const buttons = document.querySelectorAll('button');
 
-    //        console.log(playerPoint, computerPoint);
-    //        console.log(playRound(playerSelection, computerSelection));
-    // }
-
-    if (playerPoint >= 3 && computerPoint <= 2) {
-        console.log('congratulation you won');
-    } else if (playerPoint <= 2 && computerPoint >= 3) {
-        console.log('You\'re a FAILURE');
-    } else if (playerPoint >= 1 && computerPoint == 0) {
-        console.log('congratulation you won');
-    } else if (playerPoint == 0 && computerPoint >= 1) {
-        console.log('You\'re a FAILURE');
-    } else {
-        console.log('It\'s a draw ')
-    }
-}
-
-
-game();
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+  
+        game(button);
+  });
+});
