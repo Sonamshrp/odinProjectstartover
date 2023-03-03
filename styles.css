@@ -1,0 +1,11 @@
+#selected, #score, #winner {
+  display: inline-block;
+  vertical-align: top;
+}
+#selected {
+  color : blue;
+}
+
+#score {
+  color : green;
+}
