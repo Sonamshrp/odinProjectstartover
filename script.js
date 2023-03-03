@@ -23,22 +23,17 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection == 'rock' && playerSelection == 'paper') {
             playerPoint++;
-            console.log('you played ' + playerSelection, ',computer played ' + computerSelection);
             return win;
         } else if (computerSelection == 'paper' && playerSelection == 'scissors') {
             playerPoint++;
-            console.log('you played ' + playerSelection, ',computer played ' + computerSelection);
             return win;
         } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
             playerPoint++;
-            console.log('you played ' + playerSelection, ',computer played ' + computerSelection);
             return win;
         } else if (computerSelection == playerSelection) {
-            console.log('you played ' + playerSelection, ',computer played ' + computerSelection);
             return draw;
         } else {
             computerPoint++;
-            console.log('you played ' + playerSelection, ',computer played ' + computerSelection);
             return lose
         }
     } else {
@@ -51,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
         const computerSelection = getComputerChoice();
         selected.insertAdjacentHTML('beforeend','<div>'+`player: ${playerSelection} computer:${computerSelection}`+'</div>');
         console.log(playRound(playerSelection,computerSelection));
-        console.log(playerPoint, computerPoint);
+        score.insertAdjacentHTML('beforeend','<div>'+`your point: ${playerPoint}, your enemy point: ${computerPoint}`+'</div>');
         }
 
 const buttons = document.querySelectorAll('button');
