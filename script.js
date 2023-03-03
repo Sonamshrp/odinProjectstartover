@@ -1,9 +1,9 @@
 let playerPoint = 0,
     computerPoint = 0;
-
-let selections= document.getElementById('')
-
-
+    
+const scoreboard = document.querySelector('.scoreboard');
+const selected = scoreboard.firstElementChild;
+const score = document.querySelector('#score');
 
 //below codes get random choice for computer
 let choices = ['rock', 'paper', 'scissors'];
@@ -49,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
  function game(button){
         const playerSelection = button.textContent;
         const computerSelection = getComputerChoice();
-
+        selected.insertAdjacentHTML('beforeend','<div>'+`player: ${playerSelection} computer:${computerSelection}`+'</div>');
         console.log(playRound(playerSelection,computerSelection));
         console.log(playerPoint, computerPoint);
         }
@@ -62,3 +62,4 @@ buttons.forEach(button => {
         game(button);
   });
 });
+
